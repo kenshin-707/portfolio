@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Practice Notes — Cyber Gladiator</title>
+
+<style>
+  body{
+    margin:0;
+    background:#0d1014;
+    color:#e7edf1;
+    font-family:system-ui;
+    padding:40px;
+  }
+  a{color:#2fb3ff; text-decoration:none}
+  .wrap{max-width:900px; margin:auto}
+
+  header{
+    background:#13171c;
+    padding:20px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  h1{margin:0}
+  .note{
+    background:#151a20;
+    padding:18px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.05);
+    margin-bottom:18px;
+  }
+  .code{
+    background:#111419;
+    padding:10px;
+    border-radius:6px;
+    font-family:monospace;
+    font-size:13px;
+    margin-top:10px;
+  }
+  .topic{font-size:14px; opacity:.7}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+<header>
+  <h1>Practice Notes</h1>
+  <p><a href="blog.html">← Back to Blog</a></p>
+</header>
+
+<div class="note">
+  <h2>Linux Essentials</h2>
+  <p class="topic">File permissions · SUID · Cron</p>
+  <div class="code">
+    $ find / -perm -4000 2>/dev/null  
+    $ chmod 755 script.sh  
+  </div>
+</div>
+
+<div class="note">
+  <h2>Networking Basics</h2>
+  <p class="topic">Nmap · Wireshark · DNS</p>
+  <div class="code">
+    $ nmap -sC -sV -p- target  
+    $ dig example.com ANY  
+  </div>
+</div>
+
+<div class="note">
+  <h2>Python for Pentesting</h2>
+  <p class="topic">Requests · Sockets · Automation</p>
+  <div class="code">
+    import requests  
+    print(requests.get("http://target").text)
+  </div>
+</div>
+
+<div class="note">
+  <h2>Burp Suite Notes</h2>
+  <p class="topic">Repeater · Intruder · Decoder</p>
+  <div class="code">
+    Change header → test response → fuzz params  
+  </div>
+</div>
+
+</div>
+</body>
+</html>
